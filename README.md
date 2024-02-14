@@ -1,38 +1,33 @@
-# create-svelte
+# Skeleton client side themes
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is an example repository to showcase how to get fully client side theme that persists through localstorage.
 
-## Creating a project
+## Steps
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+1. Edit your app.html:
+```diff
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		%sveltekit.head%
+	</head>
+     <body data-sveltekit-preload-data="hover" data-theme="skeleton">
++       <script>
++         document.body.dataset['theme'] = localStorage.getItem('theme') ?? 'skeleton';
++       </script>
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+2. Toggling
+Then to toggle a theme from anywhere in your app you can do:
+```js
+document.body.dataset['theme'] = currentTheme;
+localStorage.setItem('theme', currentTheme);
 ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Enjoy client side theme switching!
