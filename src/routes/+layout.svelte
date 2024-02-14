@@ -37,7 +37,7 @@
 
 <AppBar>
 	<button class="btn variant-filled w-48 justify-between" use:popup={popupCombobox}>
-		Choose Theme
+		{currentTheme}
 	</button>
 	<div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
 		<ListBox>
