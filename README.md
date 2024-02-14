@@ -1,10 +1,11 @@
 # Skeleton client side themes
 
-This is an example repository to showcase how to get fully client side theme that persists through localstorage.
+This is an example repository to showcase how to get fully client side theme toggling that persists through localstorage.
 
 ## Steps
 
 1. Edit your app.html:
+
 ```diff
 <!doctype html>
 <html lang="en" class="dark">
@@ -24,6 +25,7 @@ This is an example repository to showcase how to get fully client side theme tha
 ```
 
 2. Toggling
+
 ```js
 document.body.dataset['theme'] = currentTheme;
 localStorage.setItem('theme', currentTheme);
