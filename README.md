@@ -18,13 +18,12 @@ This is an example repository to showcase how to get fully client side theme tha
 +       <script>
 +         document.body.dataset['theme'] = localStorage.getItem('theme') ?? 'skeleton';
 +       </script>
-		<div style="display: contents">%sveltekit.body%</div>
+        <div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
 ```
 
 2. Toggling
-Then to toggle a theme from anywhere in your app you can do:
 ```js
 document.body.dataset['theme'] = currentTheme;
 localStorage.setItem('theme', currentTheme);
